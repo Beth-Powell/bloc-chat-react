@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-classRoomList extends Component {
+class RoomList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,15 +8,18 @@ classRoomList extends Component {
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
-}
-componentDidMount() {
+
+
+  componentDidMount() {
      this.roomsRef.on('child_added', snapshot => {
        console.log(snapshot);
      });
    }
 
- render(){
-   return ()
+   render(){
+     return  "This is the RoomList return line";
+  }
 }
+
 
 export default RoomList;

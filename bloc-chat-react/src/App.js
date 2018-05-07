@@ -21,10 +21,10 @@ import RoomList from './components/RoomList';
 
      };
    }
- }
 
- render(){
-   return = null;
- }
 
+  render(){
+    return "This is the return line";
+  }
+}
  export default App;

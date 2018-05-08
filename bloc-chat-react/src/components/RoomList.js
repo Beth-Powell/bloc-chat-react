@@ -12,12 +12,15 @@ class RoomList extends Component {
 
   componentDidMount() {
      this.roomsRef.on('child_added', snapshot => {
-       console.log(snapshot);
+       const room = snapshot.val();
+       room.key = snapshot.key;
+       this.setState({ rooms: this.state.rooms.concat( room ) })
      });
    }
 
    render(){
-     return  "This is the RoomList return line";
+     return  (
+       { this.state.rooms.map( (room, index) };
   }
 }
 

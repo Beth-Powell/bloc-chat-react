@@ -20,8 +20,11 @@ class RoomList extends Component {
 
    render(){
      return  (
-       { this.state.rooms.map( (room, index) };
-  }
+       <ul>
+       { this.state.rooms.map( (room, index) => console.log("This should show the state rooms map"))}
+       </ul>
+      )
+    };
 }
 
 

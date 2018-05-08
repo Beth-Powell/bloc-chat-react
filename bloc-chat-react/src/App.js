@@ -24,10 +24,10 @@ import RoomList from './components/RoomList';
 
 
   render() {
-    return (
+    return  (
       <ul>
-      {this.state.rooms.map ( rooms => 
-    )}
-  }
+      { this.props.room }
+      </ul>
+     )};
 }
  export default App;

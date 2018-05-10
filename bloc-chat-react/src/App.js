@@ -25,8 +25,10 @@ import RoomList from './components/RoomList';
 
   render() {
     return  (
+      {
+      <h2>Bloc Chat</h2>
       <ul>
-      { this.props.room }
+        this.props.room
       </ul>
      )};
 }

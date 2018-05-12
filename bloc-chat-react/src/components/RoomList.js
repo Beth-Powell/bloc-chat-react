@@ -18,15 +18,36 @@ class RoomList extends Component {
      });
    }
 
-   render(){
-     return (
-       <ul>
-       { this.state.rooms.map( (room, index) =>
-          <li onClick={() => this.props.setRoom(room)} key={index}>{ room.name }</li>
+/*   render() {
+    return (
+        <div>
+            {
+                this.state.rooms.map( function(room, index) {
+                    return (<li onClick={() => this.props.setRoom(room)} key={index}> {room.name} </li>)
+                })
+            }
+        </div>
+    )
+}*/
 
-       </ul>
-      )
-    };
+render() {
+  return (
+    <div>
+      {
+        this.state.rooms.map( (room, index) => (<li onClick={() => this.props.setRoom(room)} key={index}> {room.name} </li>)
+        )
+      }
+    </div>
+  )
+}
+/*   render(){
+     return (
+       <div>
+           { this.state.rooms.map( (room, index) =>
+            <li onClick={() => this.props.setRoom(room)} key={index}>{ room.name }</li>
+           )}
+       </div>
+  )}*/
 }
 
 

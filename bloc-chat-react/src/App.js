@@ -27,7 +27,7 @@ setRoom(room) {
   }
 
   render() {
-    return  (
+    return
       {
       <div>
         <h2>Bloc Chat</h2>
@@ -35,7 +35,7 @@ setRoom(room) {
            <RoomList firebase={ firebase } activeRoom={ this.state.activeRoom } setRoom={this.setRoom} />
         </ul>
       </div>
-     )};
+     };
   }
 }
  export default App;

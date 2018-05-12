@@ -18,18 +18,24 @@ import RoomList from './components/RoomList';
    constructor (props) {
      super(props);
      this.state = {
-
+       activeRoom: null
      };
    }
 
+setRoom(room) {
+    this.setState({ activeRoom: room })
+  }
 
   render() {
     return  (
       {
-      <h2>Bloc Chat</h2>
-      <ul>
-        this.props.room
-      </ul>
+      <div>
+        <h2>Bloc Chat</h2>
+        <ul>
+           <RoomList firebase={ firebase } activeRoom={ this.state.activeRoom } setRoom={this.setRoom} />
+        </ul>
+      </div>
      )};
+  }
 }
  export default App;

@@ -19,9 +19,11 @@ class RoomList extends Component {
    }
 
    render(){
-     return  (
+     return (
        <ul>
-       { this.state.rooms.map( (room, index) => console.log("This should show the state rooms map"))}
+       { this.state.rooms.map( (room, index) =>
+          <li onClick={() => this.props.setRoom(room)} key={index}>{ room.name }</li>
+
        </ul>
       )
     };

@@ -12,6 +12,7 @@ import RoomList from './components/RoomList';
    storageBucket: "bloc-chat-react-b328a.appspot.com",
    messagingSenderId: "211533339840"
  };
+
  firebase.initializeApp(config);
 
  class App extends Component {
@@ -20,9 +21,12 @@ import RoomList from './components/RoomList';
      this.state = {
        activeRoom: null
      };
-   }
 
-setRoom(room) {
+
+    this.setRoom = this.setRoom.bind(this);
+  };
+
+  setRoom(room) {
     this.setState({ activeRoom: room })
   }
 

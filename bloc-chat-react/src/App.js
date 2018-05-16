@@ -31,15 +31,14 @@ import RoomList from './components/RoomList';
   }
 
   render() {
-    return
-      {
+    return (
       <div>
         <h2>Bloc Chat</h2>
         <ul>
            <RoomList firebase={ firebase } activeRoom={ this.state.activeRoom } setRoom={this.setRoom} />
         </ul>
       </div>
-     };
+    );
   }
 }
  export default App;

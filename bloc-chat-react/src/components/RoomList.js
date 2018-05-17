@@ -6,10 +6,20 @@ class RoomList extends Component {
     this.state = {
       rooms: []
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    createRoom();
+  }
 
+  createRoom(){
+    this.roomsRef.push({
+      name: newRoomName
+    });
+  }
   componentDidMount() {
      this.roomsRef.on('child_added', snapshot => {
        const room = snapshot.val();
@@ -18,17 +28,6 @@ class RoomList extends Component {
      });
    }
 
-/*   render() {
-    return (
-        <div>
-            {
-                this.state.rooms.map( function(room, index) {
-                    return (<li onClick={() => this.props.setRoom(room)} key={index}> {room.name} </li>)
-                })
-            }
-        </div>
-    )
-}*/
 
 render() {
   return (
@@ -37,18 +36,16 @@ render() {
         this.state.rooms.map( (room, index) => (<li onClick={() => this.props.setRoom(room)} key={index}> {room.name} </li>)
         )
       }
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input type="text" name={this.createRoom.room.name} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      }
     </div>
   )
 }
-/*   render(){
-     return (
-       <div>
-           { this.state.rooms.map( (room, index) =>
-            <li onClick={() => this.props.setRoom(room)} key={index}>{ room.name }</li>
-           )}
-       </div>
-  )}*/
-}
-
 
 export default RoomList;

@@ -10,16 +10,17 @@ class RoomList extends Component {
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    createRoom();
-  }
-
-  createRoom(){
+  createRoom(room){
     this.roomsRef.push({
-      name: newRoomName
+      name: "Room" + room.key
     });
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.createRoom;
+  }
+
   componentDidMount() {
      this.roomsRef.on('child_added', snapshot => {
        const room = snapshot.val();
@@ -39,13 +40,13 @@ render() {
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:
-            <input type="text" name={this.createRoom.room.name} />
+            <input type="text" name={this.createRoom} />
           </label>
           <input type="submit" value="Submit" />
         </form>
-      }
     </div>
   )
+ }
 }
 
 export default RoomList;

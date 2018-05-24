@@ -26,3 +26,53 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 20px;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+.room-list ul li {
+  padding: 4px;
+}
+
+.message-list ul li {
+  padding: 15px;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  margin-top: 80px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: black;
+  padding: .5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}

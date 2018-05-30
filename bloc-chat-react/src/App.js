@@ -20,15 +20,21 @@ import MessageList from './components/MessageList';
    constructor (props) {
      super(props);
      this.state = {
-       activeRoom: null
+       activeRoom: null,
+       activeMessage: null
      };
 
 
     this.setRoom = this.setRoom.bind(this);
+    this.setMessage = this.setMessage.bind(this);
   };
 
   setRoom(room) {
     this.setState({ activeRoom: room })
+  }
+
+  setMessage(message) {
+    this.setState({ activeMessage: message })
   }
 
   render() {

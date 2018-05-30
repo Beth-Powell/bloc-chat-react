@@ -6,38 +6,45 @@ class MessageList extends Component {
     super(props);
     this.state = {
       messages: [],
-      activeRoom: null,
+      value: '',
+//      activeRoom: null,
     };
     this.createMessage = this.createMessage.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.messagesRef = this.props.firebase.database().ref('messages');
   }
 
   createMessage(){
     this.messagesRef.push({
-      name: this.state.value
+      content: this.state.value,
+       roomId: this.props.activeRoom.key,
+       username: this.props.user.email
     });
     this.setState({
       newMessage: ''
     });
   }
 
-
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
 
   componentDidMount() {
      this.messagesRef.on('child_added', snapshot => {
        const message = snapshot.val();
        message.key = snapshot.key;
-       this.setState({ message: this.state.rooms.concat( message ) })
+       this.setState({ message: this.state.message.concat( message ) })
      });
    }
 
-
 render() {
   return (
-    <div>
-      {
-        this.state.rooms.map( (room, index) => (<li className='listOfRooms' onClick={() => this.props.setRoom(room)} key={index}> {room.name} </li>)
+    <div className='message-list'>
+      <h2 className='room-name'>{ this.props.activeRoom ? this.props.activeRoom.name : 'Please select a room' }</h2>
+      <ul>
+        { this.state.messages.map( (message, index) => (<li this.props.setMessage(message)} key={index}> {messsage.content} </li>)
         )
+
       }
         <form onSubmit={this.handleSubmit}>
             <input type="text" value={this.state.value} onChange={this.handleChange} />

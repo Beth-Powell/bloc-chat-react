@@ -6,7 +6,7 @@ class MessageList extends Component {
     super(props);
     this.state = {
       messages: [],
-      value: '',
+      newMessage: '',
 //      activeRoom: null,
     };
     this.createMessage = this.createMessage.bind(this);
@@ -17,16 +17,19 @@ class MessageList extends Component {
   createMessage(){
     this.messagesRef.push({
       content: this.state.value,
-       roomId: this.props.activeRoom.key,
-       username: this.props.user.email
-    });
-    this.setState({
-      newMessage: ''
+      roomId: this.props.activeRoom.key,
+      username: this.props.user.email
     });
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({newMessage: event.target.value});
+  }
+
+  handleSubmit(event) {
+    this.createMessage();
+    event.preventDefault();
+    this.setState({newMessage: ''});
   }
 
   componentDidMount() {
@@ -42,12 +45,12 @@ render() {
     <div className='message-list'>
       <h2 className='room-name'>{ this.props.activeRoom ? this.props.activeRoom.name : 'Please select a room' }</h2>
       <ul>
-        { this.state.messages.map( (message, index) => (<li this.props.setMessage(message)} key={index}> {messsage.content} </li>)
-        )
+        { this.state.messages.map((message, index) => (<li key={index}> <b>{message.username}</b> <br /> {messsage.content} </li>)
+      )}
+      </ul>
 
-      }
         <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" newMessage={this.state.newMessage} onChange={this.handleChange} />
           <input type="submit" value="Submit" />
         </form>
     </div>

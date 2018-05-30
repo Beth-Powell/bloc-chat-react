@@ -47,6 +47,7 @@ import MessageList from './components/MessageList';
           <div className="container">
             <ul>
               <RoomList firebase={ firebase } activeRoom={ this.state.activeRoom } setRoom={this.setRoom} />
+              <MessageList firebase={ firebase } activeMessage={ this.state.activeMessage } setMessage={this.setMessage} />
             </ul>
           </div>
        </div>

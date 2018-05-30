@@ -45,7 +45,7 @@ render() {
     <div className='message-list'>
       <h2 className='room-name'>{ this.props.activeRoom ? this.props.activeRoom.name : 'Please select a room' }</h2>
       <ul>
-        { this.state.messages.map((message, index) => (<li key={index}> <b>{message.username}</b> <br /> {messsage.content} </li>)
+        { this.state.messages.map((message, index) => (<li key={index}> <b>{message.username}</b> <br /> {message.content} </li>)
       )}
       </ul>
 

@@ -43,6 +43,26 @@ ul {
   padding: 15px;
 }
 
+.message-list {
+  height: 100vh;
+  flex: 1;
+  background: aliceblue;
+  padding: 10px 0 0 40px;
+  margin-bottom: 0 auto -50px;
+}
+
+.message-list ul {
+  padding: 0 0 0 0;
+}
+
+.message-list ul li:nth-child(odd) {
+  background: #dedede;
+}
+
+.message-list ul li b{
+  color: black;
+}
+
 html,
 body {
   height: 100%;

@@ -6,7 +6,8 @@ class MessageList extends Component {
     super(props);
     this.state = {
       messages: [],
-      newMessage: '',
+      newmessage: '',
+      allmessages: [],
 //      activeRoom: null,
     };
     this.createMessage = this.createMessage.bind(this);
@@ -23,13 +24,13 @@ class MessageList extends Component {
   }
 
   handleChange(event) {
-    this.setState({newMessage: event.target.value});
+    this.setState({newmessage: event.target.value});
   }
 
   handleSubmit(event) {
     this.createMessage();
     event.preventDefault();
-    this.setState({newMessage: ''});
+    this.setState({newmessage: ''});
   }
 
   componentDidMount() {
@@ -50,7 +51,7 @@ render() {
       </ul>
 
         <form onSubmit={this.handleSubmit}>
-            <input type="text" newMessage={this.state.newMessage} onChange={this.handleChange} />
+            <input type="text" newmessage={this.state.newmessage} onChange={this.handleChange} />
           <input type="submit" value="Submit" />
         </form>
     </div>

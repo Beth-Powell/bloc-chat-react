@@ -40,8 +40,8 @@ class RoomList extends Component {
 
 render() {
   return (
-    <div>
-      { this.state.rooms.map( (room, index) => (<li className='listOfRooms' onClick={() => this.props.setRoom(room)} key={index}> { room.name } </li>)
+    <div className='room-list'>
+      { this.state.rooms.map( (room, index) => (<li onClick={() => this.props.setRoom(room)} key={index}> { room.name } </li>)
       )}
         <form onSubmit={this.handleSubmit}>
             <input type="text" value={this.state.value} onChange={this.handleChange} />

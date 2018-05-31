@@ -31,6 +31,7 @@ import MessageList from './components/MessageList';
 
   setRoom(room) {
     this.setState({ activeRoom: room })
+    console.log("clicked");
   }
 
   setMessage(message) {

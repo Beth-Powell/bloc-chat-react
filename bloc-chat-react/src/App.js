@@ -30,8 +30,8 @@ import MessageList from './components/MessageList';
   };
 
   setRoom(room) {
-    this.setState({ activeRoom: room })
-    console.log("clicked");
+    this.setState({ activeRoom: room.name })
+    console.log(this.state.activeRoom);
   }
 
   setMessage(message) {
@@ -48,7 +48,7 @@ import MessageList from './components/MessageList';
           <div className="container">
             <ul>
               <RoomList firebase={ firebase } activeRoom={ this.state.activeRoom } setRoom={this.setRoom} />
-              <MessageList firebase={ firebase } activeMessage={ this.state.activeMessage } setMessage={this.setMessage} />
+              <MessageList firebase={ firebase } activeRoom={ this.state.activeRoom } setMessage={this.setMessage} />
             </ul>
           </div>
        </div>

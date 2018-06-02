@@ -31,7 +31,7 @@ import MessageList from './components/MessageList';
 
   setRoom(room) {
     this.setState({ activeRoom: room.name })
-    console.log(this.state.activeRoom);
+//    console.log(this.state.activeRoom);
   }
 
   setMessage(message) {

@@ -25,6 +25,7 @@ class MessageList extends Component {
 
   handleChange(event) {
     this.setState({newmessage: event.target.value});
+    console.log("Change", this.state.newmessage);
   }
 
   handleSubmit(event) {
@@ -38,35 +39,19 @@ class MessageList extends Component {
        const message = snapshot.val();
        message.key = snapshot.key;
        this.setState({ messages: this.state.messages.concat(message)});
-       this.showRoomMessages();
+       console.log("Submit", this.state.messages);
+//       this.showRoomMessages();
      });
    }
 
-/*   showRoomMessages() {
-     console.log('Active Room', this.props.activeRoom);
-     if(this.props.activeRoom) {
-       const roomMessages = this.state.messages.filter(message => message.roomId.toString() === this.props.activeRoom.key);
-       console.log('Room Messages', roomMessages);
-         if(this.state.allmessages !== roomMessages){
-           this.setState({ allmessages: roomMessages });
-           console.log('allmessages', this.state.allmessages);
-         }
-      }
-   }
-
-   componentDidUpdate(){
-     this.showRoomMessages();
-   }*/
 
 render() {
-//console.log(this.props.activeRoom);
-//console.log(this.state.messages);
 
   return (
     <div className='message-list'>
-      <h2 className='room-name'>{ this.props.activeRoom ? this.props.activeRoom : 'Please select a room' }</h2>
+      <h2 className='room-name'>{ this.props.activeRoom ? this.props.activeRoom.name : 'Please select a room' }</h2>
       <ul>
-        { this.state.messages.filter(message => message.roomId.toString() === this.props.activeRoom.key).map((message, index) => (<li key={index}> <b>{message.username}</b> <br /> {message.content} </li>),
+        { this.state.messages.filter(message => message.roomId == this.props.activeRoom.key).map((message, index) => (<li key={index}> <b>{message.username}</b> <br /> {message.content} </li>),
       )}
       </ul>
 

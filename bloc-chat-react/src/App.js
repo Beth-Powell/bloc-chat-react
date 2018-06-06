@@ -20,7 +20,7 @@ import MessageList from './components/MessageList';
    constructor (props) {
      super(props);
      this.state = {
-       activeRoom: null,
+       activeRoom: '',
        activeMessage: null
      };
 
@@ -30,7 +30,7 @@ import MessageList from './components/MessageList';
   };
 
   setRoom(room) {
-    this.setState({ activeRoom: room.name })
+    this.setState({ activeRoom: room })
 //    console.log(this.state.activeRoom);
   }
 

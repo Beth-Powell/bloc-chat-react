@@ -7,19 +7,20 @@ class MessageList extends Component {
     this.state = {
       messages: [],
       newmessage: '',
-      allmessages: [],
+//      allmessages: [],
 //      activeRoom: null,
     };
     this.createMessage = this.createMessage.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.messagesRef = this.props.firebase.database().ref('messages');
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   createMessage(){
     this.messagesRef.push({
       content: this.state.newmessage,
       roomId: this.props.activeRoom.key,
-      username: this.props.user.email
+      username: "Anonymous",
     });
   }
 
@@ -29,8 +30,9 @@ class MessageList extends Component {
   }
 
   handleSubmit(event) {
-    this.createMessage();
     event.preventDefault();
+    this.createMessage();
+//    console.log("Submit", this.state.newmessage);
     this.setState({newmessage: ''});
   }
 
@@ -39,14 +41,15 @@ class MessageList extends Component {
        const message = snapshot.val();
        message.key = snapshot.key;
        this.setState({ messages: this.state.messages.concat(message)});
-       console.log("Submit", this.state.messages);
-//       this.showRoomMessages();
      });
    }
 
+/*
+   componentDidUpdate(){
+     this.showRoomMessages();
+   }*/
 
 render() {
-
   return (
     <div className='message-list'>
       <h2 className='room-name'>{ this.props.activeRoom ? this.props.activeRoom.name : 'Please select a room' }</h2>
@@ -54,9 +57,8 @@ render() {
         { this.state.messages.filter(message => message.roomId == this.props.activeRoom.key).map((message, index) => (<li key={index}> <b>{message.username}</b> <br /> {message.content} </li>),
       )}
       </ul>
-
         <form onSubmit={this.handleSubmit}>
-            <input type="text" newmessage={this.state.newmessage} onChange={this.handleChange} />
+            <input value={this.state.newmessage} onChange={this.handleChange} />
           <input type="submit" value="Submit" />
         </form>
     </div>

@@ -21,7 +21,7 @@ import MessageList from './components/MessageList';
      super(props);
      this.state = {
        activeRoom: '',
-       activeMessage: null
+       activeMessage: ''
      };
 
 

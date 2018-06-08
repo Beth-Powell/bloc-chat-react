@@ -1,3 +1,5 @@
 .room-list {
   list-style-type: none;
+  margin-left: 10px;
+  margin-top: 10px;
 }

@@ -6,7 +6,7 @@ class User extends Component {
     this.state = {
       user: ''
     };
-    this.SignIn = this.signIn.bind(this);
+    this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
   }
 

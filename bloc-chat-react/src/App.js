@@ -55,7 +55,7 @@ import User from './components/User';
         { this.state.activeUser ?
           <div className="container">
               <RoomList firebase={ firebase } activeRoom={ this.state.activeRoom } setRoom={this.setRoom} />
-              <MessageList firebase={ firebase } activeRoom={ this.state.activeRoom } setMessage={this.setMessage} />
+              <MessageList firebase={ firebase } setUser={this.setUser} user={this.state.activeUser} activeRoom={ this.state.activeRoom } setMessage={this.setMessage} />
           </div>
         : null }
        </div>

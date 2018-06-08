@@ -7,8 +7,6 @@ class MessageList extends Component {
     this.state = {
       messages: [],
       newmessage: '',
-//      allmessages: [],
-//      activeRoom: null,
     };
     this.createMessage = this.createMessage.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,19 +18,17 @@ class MessageList extends Component {
     this.messagesRef.push({
       content: this.state.newmessage,
       roomId: this.props.activeRoom.key,
-      username: this.props.user,
+      username: this.props.user.displayName,
     });
   }
 
   handleChange(event) {
     this.setState({newmessage: event.target.value});
-    console.log("Change", this.state.newmessage);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.createMessage();
-//    console.log("Submit", this.state.newmessage);
     this.setState({newmessage: ''});
   }
 
@@ -44,10 +40,6 @@ class MessageList extends Component {
      });
    }
 
-/*
-   componentDidUpdate(){
-     this.showRoomMessages();
-   }*/
 
 render() {
   return (

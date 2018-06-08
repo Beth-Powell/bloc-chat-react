@@ -50,7 +50,7 @@ import User from './components/User';
       <div>
         <nav>
           <h2>Bloc Chat</h2>
-        <User firebase={ firebase } setUser={this.setUser} />
+        <User firebase={ firebase } setUser={this.setUser} user={ this.state.activeUser } />
         </nav>
         { this.state.activeUser ?
           <div className="container">

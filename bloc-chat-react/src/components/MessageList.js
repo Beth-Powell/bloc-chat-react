@@ -20,7 +20,7 @@ class MessageList extends Component {
     this.messagesRef.push({
       content: this.state.newmessage,
       roomId: this.props.activeRoom.key,
-      username: "Anonymous",
+      username: this.props.user,
     });
   }
 
